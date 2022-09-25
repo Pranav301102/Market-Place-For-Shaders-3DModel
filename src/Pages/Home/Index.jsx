@@ -1,10 +1,10 @@
 import * as THREE from 'three'
 import { useEffect, useRef, useState } from 'react'
 import { Canvas, useFrame,extend,useThree} from '@react-three/fiber'
-import {  MeshReflectorMaterial, Environment, shaderMaterial,OrbitControls,CameraShake} from '@react-three/drei'
+import {  MeshReflectorMaterial, Environment, shaderMaterial,OrbitControls,CameraShake,ScrollControls,Scroll} from '@react-three/drei'
 import styled from 'styled-components'
 import glsl from 'babel-plugin-glsl/macro'
-import { RGBA_ASTC_10x10_Format } from 'three'
+import "./Index.css"
 
 const GOLDENRATIO = 1.61803398875
 
@@ -17,12 +17,19 @@ export default function Home(){
             <color attach="background" args={['#191920']} />
             <fog attach="fog" args={['#191920', 0, 15]} />
             <Environment preset="city" />
-            
+            <CameraShake yawFrequency={0.1} pitchFrequency={0.1} rollFrequency={0.1} />
+            <ScrollControls
+            pages={0}>
+            <Scroll>
             <Rig>
             <Frame />
             <Ground/>
             </Rig>
-            <CameraShake yawFrequency={0.1} pitchFrequency={0.1} rollFrequency={0.1} />
+            </Scroll>
+            <Scroll html>
+                <h1>Hello World</h1>
+            </Scroll>
+            </ScrollControls>
             </Canvas>
             </MainContainer>
         </>
