@@ -1,37 +1,28 @@
 import * as THREE from 'three'
 import { useEffect, useRef, useState } from 'react'
-import { Canvas, useFrame,extend } from '@react-three/fiber'
-import {  MeshReflectorMaterial, Environment, shaderMaterial,} from '@react-three/drei'
+import { Canvas, useFrame,extend,useThree} from '@react-three/fiber'
+import {  MeshReflectorMaterial, Environment, shaderMaterial,OrbitControls,CameraShake} from '@react-three/drei'
 import styled from 'styled-components'
 import glsl from 'babel-plugin-glsl/macro'
+import { RGBA_ASTC_10x10_Format } from 'three'
 
 const GOLDENRATIO = 1.61803398875
 
 export default function Home(){
+    
+  
     return(
         <>  <MainContainer>
             <Canvas>
             <color attach="background" args={['#191920']} />
             <fog attach="fog" args={['#191920', 0, 15]} />
             <Environment preset="city" />
-            <group position={[0, -1.5, 0]}>
-                <Frame />
-            <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
-            <planeGeometry args={[50, 50]} />
-            <MeshReflectorMaterial
-            blur={[300, 100]}
-            resolution={2048}
-            mixBlur={1}
-            mixStrength={40}
-            roughness={1}
-            depthScale={1.2}
-            minDepthThreshold={0.4}
-            maxDepthThreshold={1.4}
-            color="#101010"
-            metalness={0.5}
-          />
-            </mesh>
-            </group>
+            
+            <Rig>
+            <Frame />
+            <Ground/>
+            </Rig>
+            <CameraShake yawFrequency={0.1} pitchFrequency={0.1} rollFrequency={0.1} />
             </Canvas>
             </MainContainer>
         </>
@@ -92,6 +83,38 @@ function Frame({ url, c = new THREE.Color(), ...props }) {
       }`,
     ),
   })
+
+function Rig({ children }) {
+    const ref = useRef()
+    const vec = new THREE.Vector3()
+    const { camera, mouse } = useThree()
+    useFrame(() => {
+      camera.position.lerp(vec.set(mouse.x * 2, 2, 5.5), 0.05)
+      ref.current.position.lerp(vec.set(mouse.x * 1, mouse.y * 0.1, 0), 0.1)
+    //   ref.current.rotation.y = THREE.MathUtils.lerp(ref.current.rotation.y, (-mouse.x * Math.PI) / 20, 0.1)
+    })
+    return <group ref={ref} position={[0,-1.5,0]}>{children}</group>
+  }
+
+function Ground(){
+    return(
+        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
+            <planeGeometry args={[50, 50]} />
+            <MeshReflectorMaterial
+            blur={[300, 100]}
+            resolution={2048}
+            mixBlur={1}
+            mixStrength={40}
+            roughness={1}
+            depthScale={1.2}
+            minDepthThreshold={0.4}
+            maxDepthThreshold={1.4}
+            color="#101010"
+            metalness={0.5}
+          />
+        </mesh>
+    )
+}
 
 const MainContainer = styled.div`
 width:100vw ;
