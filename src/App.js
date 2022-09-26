@@ -13,6 +13,9 @@ function App() {
     <Routes>
      <Route exact path="/" element={<Home/>} />
      <Route exact path="/login" element={<LoginPage/>} />
+     <Route exact path="/signup" element={<LoginPage/>} />
+     <Route exact path="/shader" element={<LoginPage/>} />
+     <Route exact path="/model" element={<LoginPage/>} />
     </Routes> 
     </Router>
   )

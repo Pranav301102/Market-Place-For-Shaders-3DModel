@@ -20,10 +20,43 @@ function Navbar() {
               Home
             </Link>
           </li>
-          <li>Buy Now</li>
-          <li>Contact Us</li>
-          <li>Help</li>
+          <li>
+            <Link
+              to="/shader"
+              className="nav-links"
+              onClick={click ? handleClick : null}
+            >
+              Shaders
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/model"
+              className="nav-links"
+              onClick={click ? handleClick : null}
+            >
+              3D-Model
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/abou"
+              className="nav-links"
+              onClick={click ? handleClick : null}
+            >
+              About us
+            </Link>
+          </li>
+          
           <Button radius="xl">
+          <Link
+              to="/signup"
+              className="nav-links"
+              onClick={click ? handleClick : null}
+            >
+              Signup
+            </Link></Button>
+            <Button radius="xl">
           <Link
               to="/login"
               className="nav-links"
