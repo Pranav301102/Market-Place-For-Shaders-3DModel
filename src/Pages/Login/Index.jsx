@@ -18,8 +18,8 @@ export default function LoginPage(){
         <Canvas>
           {/* <color attach="background" args={["#191920"]} />
           <fog attach="fog" args={["#191920", 0, 15]} /> */}
-          <Environment preset="city" />
-          <ScrollControls>
+          {/* <Environment preset="city" /> */}
+          <ScrollControls pages={0}>
             <Scroll>
             <Stars/>
             </Scroll>
@@ -27,7 +27,6 @@ export default function LoginPage(){
                 <Login/>
             </Scroll>
           </ScrollControls>
-          
         </Canvas>
         </MainContainer>
     )

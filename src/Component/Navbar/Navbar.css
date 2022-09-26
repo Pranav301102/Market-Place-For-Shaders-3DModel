@@ -1,10 +1,11 @@
 .navbar{
     /* border: 1px solid red; */
-    display: inline-block;
+    position: absolute;
     width: 600px;
     position: absolute;
     left: 95vh;
     top: 5vh;
+    z-index: 20;
 }
 .navbar ul{
     display: flex;
@@ -12,5 +13,10 @@
     padding: 1px;
     text-decoration: none;
     list-style: none;
+    color: white;
+}
+
+.navbar a{
+    text-decoration: none;
     color: white;
 }
