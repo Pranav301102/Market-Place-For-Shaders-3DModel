@@ -1,18 +1,13 @@
-import * as THREE from "three";
-import { useEffect, useRef, useState } from "react";
-import { Canvas, useFrame, extend, useThree } from "@react-three/fiber";
-import {
-  MeshReflectorMaterial,
-  Environment,
-  shaderMaterial,
-  OrbitControls,
-  CameraShake,
-  ScrollControls,
-  Scroll,
-} from "@react-three/drei";
-import styled from "styled-components";
-import glsl from "babel-plugin-glsl/macro";
-import "./Index.css";
+
+import * as THREE from 'three'
+import { useEffect, useRef, useState } from 'react'
+import { Canvas, useFrame,extend,useThree} from '@react-three/fiber'
+import {  MeshReflectorMaterial, Environment, shaderMaterial,OrbitControls,CameraShake,ScrollControls,Scroll} from '@react-three/drei'
+import styled from 'styled-components'
+import glsl from 'babel-plugin-glsl/macro'
+import "./Index.css"
+import Navbar from '../../Component/Login/Navbar/Navbar'
+
 
 const GOLDENRATIO = 1.61803398875;
 
@@ -38,7 +33,8 @@ export default function Home() {
               </Rig>
             </Scroll>
             <Scroll html>
-              <h1>Hello World</h1>
+                <h1>Hello World</h1>
+                <Navbar/>
             </Scroll>
           </ScrollControls>
         </Canvas>
