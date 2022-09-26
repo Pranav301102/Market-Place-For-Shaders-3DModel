@@ -9,19 +9,19 @@ import {
   Scroll,
 } from "@react-three/drei";
 import { MainContainer } from "../Home/Index"
-import Stars from "../../Component/Stars/Stars.Jsx";
+import Stars from "../../Component/Stars/Stars.jsx";
 import Login from "../../Component/Login/Login";
 
 export default function LoginPage(){
     return(
         <MainContainer>
         <Canvas>
-          {/* <color attach="background" args={["#191920"]} />
-          <fog attach="fog" args={["#191920", 0, 15]} /> */}
-          {/* <Environment preset="city" /> */}
+          <color attach="background" args={["#191920"]} />
+          <fog attach="fog" args={["#191920", 0, 15]} />
+          <Environment preset="city" />
           <ScrollControls pages={0}>
             <Scroll>
-            <Stars/>
+                <Stars/>
             </Scroll>
             <Scroll html>
                 <Login/>
