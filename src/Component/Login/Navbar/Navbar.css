@@ -1,0 +1,16 @@
+.navbar{
+    /* border: 1px solid red; */
+    display: inline-block;
+    width: 600px;
+    position: absolute;
+    left: 95vh;
+    top: 5vh;
+}
+.navbar ul{
+    display: flex;
+    justify-content: space-between;
+    padding: 1px;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
