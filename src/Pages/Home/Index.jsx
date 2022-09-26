@@ -6,7 +6,7 @@ import {  MeshReflectorMaterial, Environment, shaderMaterial,OrbitControls,Camer
 import styled from 'styled-components'
 import glsl from 'babel-plugin-glsl/macro'
 import "./Index.css"
-import Navbar from '../../Component/Login/Navbar/Navbar'
+import Navbar from '../../Component/Navbar/Navbar'
 
 
 const GOLDENRATIO = 1.61803398875;
