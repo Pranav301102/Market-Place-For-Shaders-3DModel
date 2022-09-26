@@ -11,13 +11,13 @@ import {
     Button,
   } from '@mantine/core';
 //   import './Login.css';
-  function SignUp() {
+function SignUp() {
     return (
     <>
-      <Container size={420} my={40} className="cont" >
+      <Container size={420} my={40} className="cont" sx={{position: 'absolute',left: 530,top: 70,width: 340}}>
         <Title
           align="center"
-          sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}`, fontWeight: 900 ,position: 'absolute',left: 660,top: 100})}
+          sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}`, fontWeight: 900 ,position: 'absolute',left: 130,top: -50,color: 'white'})}
         >
           Sign Up
         </Title>
