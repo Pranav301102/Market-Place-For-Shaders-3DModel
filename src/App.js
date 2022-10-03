@@ -6,6 +6,7 @@ import Navbar from './Component/Navbar/Navbar';
 import LoginPage from './Pages/Login/Index';
 import SignupPage from './Pages/Signup/Index';
 import Model from './Pages/Model/Index'
+import Shaders from './Pages/Shaders/shaders';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
      <Route exact path="/" element={<Home/>} />
      <Route exact path="/login" element={<LoginPage/>} />
      <Route exact path="/signup" element={<SignupPage/>} />
-     <Route exact path="/shader" element={<LoginPage/>} />
+     <Route exact path="/shader" element={<Shaders/>} />
      <Route exact path="/model" element={<Model/>} />
     </Routes> 
     </Router>
