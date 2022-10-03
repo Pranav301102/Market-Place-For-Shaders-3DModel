@@ -7,6 +7,7 @@ import LoginPage from './Pages/Login/Index';
 import SignupPage from './Pages/Signup/Index';
 import Model from './Pages/Model/Index'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
+import ModelScene from './Component/Model/Index';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
      <Route exact path="/login" element={<LoginPage/>} />
      <Route exact path="/signup" element={<SignupPage/>} />
      <Route exact path="/shader" element={<LoginPage/>} />
-     <Route exact path="/model" element={<Model/>} />
+     <Route exact path="/model" element={<ModelScene/>} />
     </Routes> 
     </Router>
   )

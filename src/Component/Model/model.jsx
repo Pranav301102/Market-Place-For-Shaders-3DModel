@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { useGLTF, PresentationControls, Environment, ContactShadows, Html } from '@react-three/drei'
 
-function Watch(props) {
+export function Watch(props) {
     const ref = useRef()
     const { nodes, materials } = useGLTF('/watch-v1.glb')
     useFrame((state) => {
@@ -15,7 +15,6 @@ function Watch(props) {
     return (
       <group ref={ref} {...props} dispose={null}>
         <mesh geometry={nodes.Object005_glass_0.geometry} material={materials.glass}>
-         
         </mesh>
         <mesh castShadow receiveShadow geometry={nodes.Object006_watch_0.geometry} material={materials.watch} />
       </group>
