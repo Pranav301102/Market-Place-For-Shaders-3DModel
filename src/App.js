@@ -7,6 +7,7 @@ import LoginPage from './Pages/Login/Index';
 import SignupPage from './Pages/Signup/Index';
 import Model from './Pages/Model/Index'
 import Shaders from './Pages/Shaders/shaders';
+import PriceCard from './Component/PricingCard/PriceCard';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
 import ModelScene from './Component/Model/Index';
 
@@ -17,6 +18,7 @@ function App() {
     <Routes>
      <Route exact path="/" element={<Home/>} />
      <Route exact path="/login" element={<LoginPage/>} />
+     <Route exact path="/PriceCard" element={<PriceCard/>} />
      <Route exact path="/signup" element={<SignupPage/>} />
      <Route exact path="/shader" element={<Shaders/>} />
      <Route exact path="/model" element={<Model/>} />
