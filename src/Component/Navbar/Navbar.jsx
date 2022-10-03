@@ -40,7 +40,7 @@ function Navbar() {
           </li>
           <li>
             <Link
-              to="/abou"
+              to="/PriceCard"
               className="nav-links"
               onClick={click ? handleClick : null}
             >
