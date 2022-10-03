@@ -14,12 +14,12 @@ import "./Login.css";
 function Login() {
   return (
     <>
-      <Container size={420} my={40} className="cont">
+      <Container size={420} my={40} className="cont" sx={{position: 'absolute',left: 530,top: 70,width: 340}}>
         <Title
           align="center"
           sx={(theme) => ({
             fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-            fontWeight: 900,
+            fontWeight: 900,position: 'absolute',left: 70,top: -70,color: 'white'
           })}
         >
           Welcome back!
@@ -54,7 +54,7 @@ function Login() {
             </Anchor>
           </Group>
           <Button fullWidth mt="xl">
-            Sign in
+            Log in
           </Button>
         </Paper>
       </Container>
