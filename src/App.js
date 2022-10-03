@@ -8,6 +8,7 @@ import SignupPage from './Pages/Signup/Index';
 import Model from './Pages/Model/Index'
 import Shaders from './Pages/Shaders/shaders';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
+import ModelScene from './Component/Model/Index';
 
 function App() {
   return (
@@ -17,8 +18,8 @@ function App() {
      <Route exact path="/" element={<Home/>} />
      <Route exact path="/login" element={<LoginPage/>} />
      <Route exact path="/signup" element={<SignupPage/>} />
-     <Route exact path="/shader" element={<Shaders/>} />
-     <Route exact path="/model" element={<Model/>} />
+     <Route exact path="/shader" element={<LoginPage/>} />
+     <Route exact path="/model" element={<ModelScene/>} />
     </Routes> 
     </Router>
   )
