@@ -18,7 +18,7 @@ function App() {
      <Route exact path="/" element={<Home/>} />
      <Route exact path="/login" element={<LoginPage/>} />
      <Route exact path="/signup" element={<SignupPage/>} />
-     <Route exact path="/shader" element={<LoginPage/>} />
+     <Route exact path="/shader" element={<Shaders/>} />
      <Route exact path="/model" element={<ModelScene/>} />
     </Routes> 
     </Router>
