@@ -1,6 +1,8 @@
 import React from 'react';
 // import '../Login/Login.css'
 import styled from 'styled-components';
+import { Button } from "@mantine/core";
+import SignUp from '../Sign Up/SignUp';
 const cardWidth = 420;
 const borderRadius = 8;
 const transition = 'all 0.45s ease';
@@ -126,7 +128,7 @@ const Card = ({ hexa, title, description, image,stack,position}) => (
       <Title>{title}</Title>
       <Description>{description}</Description>
       <BottomBar background={hexa} />
-      <StackIcons data={stack} />
+      <Button radius='xl' sx={{position: 'absolute',left: 400,top: 230}}>Buy</Button>
     </Content>
   </Style>
   </CardContainer>
