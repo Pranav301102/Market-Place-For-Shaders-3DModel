@@ -10,6 +10,7 @@ import Shaders from './Pages/Shaders/shaders';
 import PriceCard from './Component/PricingCard/PriceCard';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
 import ModelScene from './Component/Model/Index';
+import ShaderModel from './Component/Shader/Shader';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
      <Route exact path="/shader" element={<Shaders/>} />
      <Route exact path="/model" element={<Model/>} />
      <Route exact path="/3D" element={<ModelScene/>}/>
-     <Route exact path="/sh" element={<ModelScene/>}/>
+     <Route exact path="/sh" element={<ShaderModel/>}/>
     </Routes> 
     </Router>
   )
