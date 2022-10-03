@@ -19,7 +19,9 @@ function App() {
      <Route exact path="/login" element={<LoginPage/>} />
      <Route exact path="/signup" element={<SignupPage/>} />
      <Route exact path="/shader" element={<Shaders/>} />
-     <Route exact path="/model" element={<ModelScene/>} />
+     <Route exact path="/model" element={<Model/>} />
+     <Route exact path="/3D" element={<ModelScene/>}/>
+     <Route exact path="/sh" element={<ModelScene/>}/>
     </Routes> 
     </Router>
   )

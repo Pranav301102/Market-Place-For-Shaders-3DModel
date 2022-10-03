@@ -10,7 +10,7 @@
 // }
 
 // export default Index
-import Card from "../../Component/Card/Card";
+import { ShaderCard } from "../../Component/Card/Card";
 import styled from "styled-components";
 import Search from '../Search Bar/search';
 import { Button } from "@mantine/core";
@@ -63,7 +63,7 @@ export default function Projects(){
         <Container>
         <Grid>
         {websites.map((website, index) => (
-            <Card
+            <ShaderCard
               key={website.description}
               hexa={website.hexa}
               title={website.title}

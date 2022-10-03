@@ -1,11 +1,13 @@
 import React from 'react';
 // import '../Login/Login.css'
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from "@mantine/core";
 import SignUp from '../Sign Up/SignUp';
 const cardWidth = 420;
 const borderRadius = 8;
 const transition = 'all 0.45s ease';
+
 
 const Screenshot = styled.figure`
   z-index: 200;
@@ -37,8 +39,7 @@ const Screenshot = styled.figure`
 const Content = styled.div`
   z-index: 200;
   width: 60vw;
-  height:237px;
-  position: relative;
+  
   padding: 28px 20px 30px;
 `;
 
@@ -60,9 +61,9 @@ const Description = styled.span`
 
 const BottomBar = styled.span`
   position: absolute;
-  left: 0px;
+  right: 0px;
   bottom: 0px;
-  width: 35vw;
+  width: 37.3vw;
   height: 10px;
   background: ${(props) => props.background && props.background};
   border-radius: 0 0 ${borderRadius}px 0;
@@ -81,7 +82,8 @@ const Style = styled.button`
   cursor: pointer;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.12), 0 20px 20px -10px rgba(0, 0, 0, 0.125);
   transition: ${transition};
-  width: 750px;
+  width: 50vw;
+  height:31.5vh ;
   margin-top: 20px ;
   max-height: 300px ;
   &:hover {
@@ -119,8 +121,9 @@ const CardContainer = styled.div`
   padding:8px 100px;
 `
 
-
-const Card = ({ hexa, title, description, image,stack,position}) => (
+export function ModelCard ({ hexa, title, description, image,stack,position}) { 
+  const navigate = useNavigate();
+  return(
   <CardContainer style={{justifyContent:`${position}`}}>
   <Style>
     <Screenshot image={image} />
@@ -128,13 +131,30 @@ const Card = ({ hexa, title, description, image,stack,position}) => (
       <Title>{title}</Title>
       <Description>{description}</Description>
       <BottomBar background={hexa} />
-      <Button radius='xl' sx={{position: 'absolute',left: 400,top: 230}}>Buy</Button>
+      <Button onClick={()=>navigate("/3D")} radius='xl' sx={{position: 'absolute',left: 400,top: 230}}>Buy</Button>
     </Content>
   </Style>
   </CardContainer>
-);
+  )
+}
+export function ShaderCard ({ hexa, title, description, image,stack,position}) { 
+  const navigate = useNavigate();
+  return(
+  <CardContainer style={{justifyContent:`${position}`}}>
+  <Style>
+    <Screenshot image={image} />
+    <Content>
+      <Title>{title}</Title>
+      <Description>{description}</Description>
+      <BottomBar background={hexa} />
+      <Button onClick={()=>navigate("/sh")} radius='xl' sx={{position: 'absolute',left: 400,top: 230}}>Buy</Button>
+    </Content>
+  </Style>
+  </CardContainer>
+  )
+}
 
-export default Card;
+
 
 function StackIcons(props) {
   const array = props.data;
