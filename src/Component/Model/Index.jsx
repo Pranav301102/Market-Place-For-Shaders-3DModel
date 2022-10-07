@@ -14,8 +14,9 @@ export default function ModelScene() {
         <Watch rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.25, 0]} scale={0.003} />
         <ScrollControls pages={0}>
           <Scroll html>
+
             <div className="CardPricing" ></div>
-            <div className='price-card' >
+            <div className='price-card'>
               <div className='name' >Name</div>
               <div className='price' >Price</div>
             </div>
