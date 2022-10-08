@@ -9,7 +9,7 @@ import {
   Scroll,
 } from "@react-three/drei";
 import { MainContainer } from "../Home/Index"
-import Stars from "../../Component/Stars/Stars.jsx";
+import Stars from "../../Component/Stars/Stars";
 import Login from "../../Component/Login/Login";
 
 export default function LoginPage(){
