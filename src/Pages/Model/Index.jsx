@@ -14,45 +14,16 @@ import { ModelCard } from "../../Component/Card/Card";
 import styled from "styled-components";
 import Search from '../Search Bar/search';
 const websites = [
-    {
-      "postion":"center",
-      "hexa": "#1D1148",
-      "title": "test",
-      "stack": ["react", "express", "node"],
-      "description": "test",
-      "image": "https://res.cloudinary.com/vinzcelavi/image/upload/w_320,dpr_2.0/v1613408078/codesandbox/swile_x8mcnc.png"
-    },
-    {
-      "postion":"center",
-      "hexa": "#FFCD00",
-      "title": "Typeform",
-      "stack": ["react", "express", "node"],
-      "description": "https://www.welcometothejungle.com/fr/",
-      "image": "https://res.cloudinary.com/vinzcelavi/image/upload/w_320,dpr_2.0/v1613409201/codesandbox/typeform_vqqkob.png"
-    },
-    {
-      "postion":"center",
-      "hexa": "#FFCD00",
-      "title": "Typeform",
-      "stack": ["react", "express", "node"],
-      "description": "https://www.welcometothejungle.com/fr/",
-      "image": "https://res.cloudinary.com/vinzcelavi/image/upload/w_320,dpr_2.0/v1613409201/codesandbox/typeform_vqqkob.png"
-    },
-    { "postion":"center",
-      "hexa": "#FFCD00",
-      "title": "Typeform",
-      "stack": ["react", "express", "node"],
-      "description": "https://www.welcometothejungle.com/fr/",
-      "image": "https://res.cloudinary.com/vinzcelavi/image/upload/w_320,dpr_2.0/v1613409201/codesandbox/typeform_vqqkob.png"
-    },
-    {
-      "postion":"center",
-      "hexa": "#FFCD00",
-      "title": "Typeform",
-      "stack": ["react", "express", "node"],
-      "description": "https://www.welcometothejungle.com/fr/",
-      "image": "https://res.cloudinary.com/vinzcelavi/image/upload/w_320,dpr_2.0/v1613409201/codesandbox/typeform_vqqkob.png"
-    }
+  {
+    "postion":"center",
+    "hexa": "#1D1148",
+    "title": "Watch",
+    "stack": ["Watch", "Brown", "High-Res"],
+    "description": "A Watch",
+    "madeBy":"Pranav",
+    "price":"800",
+    "image": "https://res.cloudinary.com/vinzcelavi/image/upload/w_320,dpr_2.0/v1613408078/codesandbox/swile_x8mcnc.png"
+  }
 ]
 
 export default function Projects(){

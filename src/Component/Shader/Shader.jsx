@@ -66,7 +66,7 @@ function Frame({ url, c = new THREE.Color(), ...props }) {
           position={[0, 0, 2]}
         >
           <boxGeometry />
-          <portalMaterial
+          <evalMaterial
             ref={portalMaterial}
             blending={THREE.AdditiveBlending}
             uColorStart="pink"
@@ -80,7 +80,7 @@ function Frame({ url, c = new THREE.Color(), ...props }) {
 extend({
   // shaderMaterial creates a THREE.ShaderMaterial, and auto-creates uniform setter/getters
   // extend makes it available in JSX, in this case <portalMaterial />
-  PortalMaterial: shaderMaterial(
+  EvalMaterial: shaderMaterial(
     { time: 0, uColor: new THREE.Color(0, 1, 0.9), uTime: 0 },
     glsl`
     precision mediump float;
