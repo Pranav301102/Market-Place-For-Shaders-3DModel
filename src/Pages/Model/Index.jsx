@@ -60,20 +60,33 @@ import config from "../../config";
 
 export default function Projects() {
 	const [models, setModels] = useState([]);
+	const [allModels, setAllModels] = useState([]);
+	const [query, setQuery] = useState("");
+
 	useEffect(() => {
 		axios.get(`${config.backendLocation}/sellableitem`).then((res) => {
 			setModels(res.data.filter((item) => item.sellableType == "model"));
+			setAllModels(
+				res.data.filter((item) => item.sellableType == "model")
+			);
 		});
 	}, []);
 
+	useEffect(() => {
+		console.log({ query });
+		const filteredModels = allModels.filter((model) =>
+			model.title.includes(query)
+		);
+		setModels(filteredModels);
+	}, [query]);
+
 	return (
 		<>
-			<Search />
+			<Search query={query} setQuery={setQuery} />
 			<Container>
 				<Grid>
 					{models.map((website, index) => (
 						<ModelCard
-							key={website.description}
 							hexa={website.hexa}
 							title={website.title}
 							price={website.price}
