@@ -131,7 +131,7 @@ export function ModelCard ({ hexa, title, description, image,stack,position}) {
       <Title>{title}</Title>
       <Description>{description}</Description>
       <BottomBar background={hexa} />
-      <Button onClick={()=>navigate("/3D")} radius='xl' sx={{position: 'absolute',left: 400,top: 230}}>Buy</Button>
+      <Button onClick={()=>navigate("/3D")} radius='xl' sx={{position: 'absolute',right: 80,top: 210}}>Buy</Button>
     </Content>
   </Style>
   </CardContainer>
@@ -147,7 +147,7 @@ export function ShaderCard ({ hexa, title, description, image,stack,position}) {
       <Title>{title}</Title>
       <Description>{description}</Description>
       <BottomBar background={hexa} />
-      <Button onClick={()=>navigate("/sh")} radius='xl' sx={{position: 'absolute',left: 400,top: 230}}>Buy</Button>
+      <Button onClick={()=>navigate("/sh")} radius='xl' sx={{position: 'absolute',right: 80,top: 210}}>Buy</Button>
     </Content>
   </Style>
   </CardContainer>
