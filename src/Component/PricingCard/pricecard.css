@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,100&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Sulphur+Point:wght@300;400;700&display=swap');
 .CardPricing
 {
     height: 100vh;
@@ -11,42 +11,56 @@
     /* border: 1px solid red; */
     width: 300px;
     left: 14%;
-    font-size: 30px;
+    /* font-size: 30px; */
     display: flex;
     flex-direction: column;
-    height: 250px;
+    height: 280px;
     position: absolute;
     top: 20%;
     color: white;
-    font-family: 'Roboto Serif', serif;
+    font-family: 'Sulphur Point', sans-serif;
+    /* border-top: 1px solid white; */
     /* background-color: rgba(255, 255, 255, 0.06);
     -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px); */
 }
 .name{
-    height: 100px;
+    /* height: 100px; */
+    font-size: 35px;
+    font-weight: 700;
+    /* border-bottom: 1px solid white; */
 }
 .price{
-    height: 125px;
+    margin-top: 10px;
+    font-size: 30px;
+}
+.author{
+    /* height: 125px; */
+    font-size: 18px;
+    font-weight: 300;
+    border-bottom: 1px solid white;
 }
 .text{
     height: 125px;
- 
-    font-family: 'Roboto Serif', serif; 
+    margin-top: 10px;
+    font-weight: 300;
+    font-family: 'Sulphur Point', sans-serif;
 }
 .title{
-    height: 100px;
+        border-bottom: 1px solid white;
+    height: 50px;
     font-size: 40px;
-    font-family: 'Roboto Serif', serif;
+    font-weight: 700;
+    font-family: 'Sulphur Point', sans-serif;
 }
 .disc{
     font-size: 20px;
-    font-family: 'Roboto Serif', serif;
+    font-family: 'Sulphur Point', sans-serif;
     width: 350px;
     height: 250px;
     position: absolute;
     top: 62%;
     left: 70%;
     color: white;
-    font-family: "Poppins",sans-serif;
+    /* border-bottom: 1px solid white; */
 }
