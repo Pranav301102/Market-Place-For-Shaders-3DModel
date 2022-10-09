@@ -48,6 +48,8 @@ export default function ModelScene() {
 							/>
 							<OrbitControls />
 							<Watch
+								// asset="/watch-v1.glb"
+								asset={`${config.backendLocation}/file/download/${product.objectUrl}`}
 								rotation={[-Math.PI / 2, 0, 0]}
 								position={[0, 0.25, 0]}
 								scale={0.003}

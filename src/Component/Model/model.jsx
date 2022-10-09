@@ -4,7 +4,7 @@ import { useGLTF, PresentationControls, Environment, ContactShadows, Html } from
 
 export function Watch(props) {
     const ref = useRef()
-    const { nodes, materials } = useGLTF('/watch-v1.glb')
+    const { nodes, materials } = useGLTF(props.asset)
     useFrame((state) => {
       const t = state.clock.getElapsedTime()
       ref.current.rotation.x = -Math.PI / 1.75 + Math.cos(t / 4) / 8
