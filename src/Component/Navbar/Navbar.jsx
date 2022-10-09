@@ -50,6 +50,15 @@ function Navbar() {
 
 					{localStorage.token ? (
 						<>
+							<Button radius="xl">
+								<Link
+									to="/sell"
+									className="nav-links"
+									onClick={click ? handleClick : null}
+								>
+									Sell Asset
+								</Link>
+							</Button>
 							<Button
 								radius="xl"
 								onClick={() => {
