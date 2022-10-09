@@ -1,13 +1,13 @@
 
 import * as THREE from 'three'
 import { useEffect, useRef, useState } from 'react'
-import { Canvas, useFrame,extend,useThree} from '@react-three/fiber'
-import {  MeshReflectorMaterial, Environment, shaderMaterial,OrbitControls,CameraShake,ScrollControls,Scroll} from '@react-three/drei'
+import { Canvas, useFrame, extend, useThree } from '@react-three/fiber'
+import { MeshReflectorMaterial, Environment, shaderMaterial, OrbitControls, CameraShake, ScrollControls, Scroll } from '@react-three/drei'
 import styled from 'styled-components'
 import glsl from 'babel-plugin-glsl/macro'
-
-
-
+import '../PricingCard/pricecard.css';
+import { ShaderData } from '../../Pages/Shaders/shaders';
+import { Button } from "@mantine/core";
 
 const GOLDENRATIO = 1.61803398875;
 
@@ -26,14 +26,25 @@ export default function ShaderModel() {
           /> */}
           <ScrollControls pages={0}>
             <Scroll>
-                <OrbitControls/>
+              <OrbitControls />
               <Rig>
                 <Frame />
                 <Ground />
               </Rig>
             </Scroll>
             <Scroll html>
-                <h1>Hello World</h1>
+              <div className="CardPricing" ></div>
+              <div className='price-card'>
+                <div className='name' >Blue Waves</div>
+                <div className='author' >Pranav</div>
+                <div className='price' >Price</div>
+                <Button mt='xl' sx={{width: 100,height: 50 }}>Buy Now</Button>
+              </div>
+
+              <div className='disc'>
+                <div className='title' >Discription</div>
+                <div className='text' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam illo fugiat ut mollitia esse incidunt deleniti, voluptat.</div>
+              </div>
             </Scroll>
           </ScrollControls>
         </Canvas>
@@ -260,7 +271,7 @@ function Rig({ children }) {
   });
   return (
     <group ref={ref} position={[0, -1.5, 0]}>
-       
+
       {children}
     </group>
   );

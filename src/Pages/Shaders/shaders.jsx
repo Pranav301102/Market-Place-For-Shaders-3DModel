@@ -14,7 +14,7 @@ import { ShaderCard } from "../../Component/Card/Card";
 import styled from "styled-components";
 import Search from '../Search Bar/search';
 import { Button } from "@mantine/core";
-const websites = [
+export const ShaderData = [
     {
       "postion":"center",
       "hexa": "#1D1148",
@@ -33,7 +33,7 @@ export default function Projects(){
         <Search/>
         <Container>
         <Grid>
-        {websites.map((website, index) => (
+        {ShaderData.map((website, index) => (
             <ShaderCard
               key={website.description}
               hexa={website.hexa}
@@ -83,3 +83,4 @@ const Grid = styled.div`
     visibility: visible; /* switch to 'visible' */
   }
 `;
+
