@@ -3,6 +3,7 @@ import { Watch } from "./model"
 import { useGLTF, PresentationControls, Environment, ContactShadows, Scroll, ScrollControls, OrbitControls } from '@react-three/drei'
 import styled from 'styled-components';
 import '../PricingCard/pricecard.css';
+import { Button } from "@mantine/core";
 export default function ModelScene() {
   console.log(OrbitControls)
   return (
@@ -15,16 +16,18 @@ export default function ModelScene() {
         <ScrollControls pages={0}>
           <Scroll html>
 
-            <div className="CardPricing" ></div>
-            <div className='price-card'>
-              <div className='name' >Name</div>
-              <div className='price' >Price</div>
-            </div>
+          <div className="CardPricing" ></div>
+              <div className='price-card'>
+                <div className='name' >Blue Waves</div>
+                <div className='author' >Made By Pranav</div>
+                <div className='price' >Price</div>
+                <Button mt='xl' sx={{width: 100,height: 30 ,borderRadius: 20,marginBottom:20}}>Buy Now</Button>
+              </div>
 
-            <div className='disc'>
-              <div className='title' >Discription</div>
-              <div className='text' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam illo fugiat ut mollitia esse incidunt deleniti, voluptat.</div>
-            </div>
+              <div className='disc'>
+                <div className='title' >Discription</div>
+                <div className='text' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam illo fugiat ut mollitia esse incidunt deleniti, voluptat.</div>
+              </div>
           </Scroll>
         </ScrollControls>
         <ContactShadows position={[0, -1.4, 0]} opacity={0.75} scale={10} blur={2.5} far={4} />
