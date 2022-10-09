@@ -123,6 +123,7 @@ const CardContainer = styled.div`
 `;
 
 export function ModelCard({
+  id,
 	hexa,
 	title,
 	description,
@@ -144,7 +145,7 @@ export function ModelCard({
 					<Description>{description}</Description>
 					<BottomBar background={hexa} />
 					<Button
-						onClick={() => navigate("/3D")}
+						onClick={() => navigate(`/3D?id=${id}`)}
 						radius="xl"
 						sx={{ position: "absolute", left: 400, top: 230 }}
 					>
