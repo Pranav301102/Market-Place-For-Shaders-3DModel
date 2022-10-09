@@ -1,8 +1,24 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Sulphur+Point:wght@300;400;700&display=swap');
 h1{
-    position: absolute;
+    display: block;
     color:aliceblue;
-    left:60vw;
-    top:20vh;
     font-size:8em;   
+    font-family: 'Sulphur Point', sans-serif;
+    font-weight:700;
+}
+
+h3{
+   display: block;
+   margin-top: -10vh;
+    color:aliceblue;
+    font-size:1.5em;   
+    font-family: 'Sulphur Point', sans-serif;
+    font-weight: 300;
+}
+
+.homePage{
+    position: absolute;
+    left:60vw;
+    top:25vh; 
+    width: 40vw;
 }

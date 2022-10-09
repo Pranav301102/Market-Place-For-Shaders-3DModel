@@ -33,8 +33,10 @@ export default function Home() {
               </Rig>
             </Scroll>
             <Scroll html>
-                <h1>Hello World</h1>
-                
+              <div className='homePage'>
+                <h1>Abstract</h1>
+                <h3>MARKET PLACE FOR SHADERS AND 3D-MODEL</h3>
+              </div>
             </Scroll>
           </ScrollControls>
         </Canvas>
