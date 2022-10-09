@@ -14,36 +14,41 @@
     /* font-size: 30px; */
     display: flex;
     flex-direction: column;
-    height: 250px;
+    height: 280px;
     position: absolute;
     top: 20%;
     color: white;
     font-family: 'Sulphur Point', sans-serif;
+    /* border-top: 1px solid white; */
     /* background-color: rgba(255, 255, 255, 0.06);
     -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px); */
 }
 .name{
-    height: 100px;
+    /* height: 100px; */
     font-size: 35px;
     font-weight: 700;
+    /* border-bottom: 1px solid white; */
 }
 .price{
-    height: 125px;
+    margin-top: 10px;
     font-size: 30px;
 }
 .author{
-    height: 125px;
+    /* height: 125px; */
     font-size: 18px;
     font-weight: 300;
+    border-bottom: 1px solid white;
 }
 .text{
     height: 125px;
+    margin-top: 10px;
     font-weight: 300;
     font-family: 'Sulphur Point', sans-serif;
 }
 .title{
-    height: 80px;
+        border-bottom: 1px solid white;
+    height: 50px;
     font-size: 40px;
     font-weight: 700;
     font-family: 'Sulphur Point', sans-serif;
@@ -57,5 +62,5 @@
     top: 62%;
     left: 70%;
     color: white;
-    
+    /* border-bottom: 1px solid white; */
 }

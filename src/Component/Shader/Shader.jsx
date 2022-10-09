@@ -36,9 +36,9 @@ export default function ShaderModel() {
               <div className="CardPricing" ></div>
               <div className='price-card'>
                 <div className='name' >Blue Waves</div>
-                <div className='author' >Pranav</div>
+                <div className='author' >Made By Pranav</div>
                 <div className='price' >Price</div>
-                <Button mt='xl' sx={{width: 100,height: 50 }}>Buy Now</Button>
+                <Button mt='xl' sx={{width: 100,height: 30 ,borderRadius: 20,marginBottom:20}}>Buy Now</Button>
               </div>
 
               <div className='disc'>
