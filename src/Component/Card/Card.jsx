@@ -223,11 +223,19 @@ export function OwnedItemCard({
 						onClick={() =>
 							(window.location = `${config.backendLocation}/file/download/${asset}`)
 						}
+						ml="-120px"
 						radius="xl"
 						sx={{ position: "absolute", left: 400, top: 230 }}
 					>
 						Download Asset
 					</Button>
+					{/* <Button
+						radius="xl"
+						ml="50px"
+						sx={{ position: "absolute", left: 400, top: 230 }}
+					>
+						Copy Certificate Link
+					</Button> */}
 				</Content>
 			</Style>
 		</CardContainer>
@@ -244,7 +252,7 @@ export function CreatedItemCard({
 	position,
 	asset,
 	type,
-	sold
+	sold,
 }) {
 	const navigate = useNavigate();
 	return (
@@ -258,9 +266,7 @@ export function CreatedItemCard({
 						{title} ₹{price}
 					</Title>
 					<Title>{type}</Title>
-					<Title>
-						{sold} sold
-					</Title>
+					<Title>{sold} sold</Title>
 					<Description>{description}</Description>
 					<BottomBar background={hexa} />
 					<Button
@@ -277,7 +283,6 @@ export function CreatedItemCard({
 		</CardContainer>
 	);
 }
-
 
 function StackIcons(props) {
 	const array = props.data;
