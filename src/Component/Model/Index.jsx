@@ -14,6 +14,7 @@ import "../PricingCard/pricecard.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import config from "../../config";
+import { Button } from "@mantine/core";
 export default function ModelScene() {
 	const [product, setProduct] = useState();
 
@@ -64,6 +65,17 @@ export default function ModelScene() {
 										<div className="price">
 											Price: {product.price}
 										</div>
+										<Button
+											mt="xl"
+											sx={{
+												width: 100,
+												height: 30,
+												borderRadius: 20,
+												marginBottom: 20,
+											}}
+										>
+											Buy Now
+										</Button>
 									</div>
 
 									<div className="disc">
