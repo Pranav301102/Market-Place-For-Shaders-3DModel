@@ -14,9 +14,7 @@ function OwnedPage() {
 				headers: { token: localStorage.token },
 			})
 			.then((res) => {
-				setItems(
-					res.data.filter((item) => item.sellableType == "model")
-				);
+				setItems(res.data);
 			});
 	}, []);
 
