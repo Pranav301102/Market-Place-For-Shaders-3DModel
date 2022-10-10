@@ -158,6 +158,7 @@ export function ModelCard({
 }
 export function ShaderCard({
 	hexa,
+	id,
 	title,
 	description,
 	image,
@@ -174,7 +175,7 @@ export function ShaderCard({
 					<Description>{description}</Description>
 					<BottomBar background={hexa} />
 					<Button
-						onClick={() => navigate("/sh")}
+						onClick={() => navigate(`/sh?id=${id}`)}
 						radius="xl"
 						sx={{ position: "absolute", left: 400, top: 230 }}
 					>

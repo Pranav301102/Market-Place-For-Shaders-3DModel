@@ -60,7 +60,8 @@ export default function Projects() {
 				<Grid>
 					{shaders.map((website, index) => (
 						<ShaderCard
-							key={website.description}
+							key={website._id}
+              id={website._id}
 							hexa={website.hexa}
 							title={website.title}
 							description={website.description}
