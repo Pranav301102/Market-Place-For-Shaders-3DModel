@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import config from "../../config";
 import { Button } from "@mantine/core";
+
 export default function ModelScene() {
 	const [product, setProduct] = useState();
 
@@ -29,6 +30,58 @@ export default function ModelScene() {
 	}, []);
 
 	console.log(OrbitControls);
+
+	const initPayment = (data, eventName) => {
+		console.log(eventName);
+		const options = {
+			key: config.razorpayKey,
+			amount: data.amount,
+			currency: data.currency,
+			name: eventName,
+			description: "Event Registration",
+			order_id: data.id,
+			handler: async (response) => {
+				try {
+					const verifyUrl = `${
+						config.backendLocation
+					}/sellableitem/verify/${
+						window.location.href.split("id=")[1]
+					}`;
+					const { data } = await axios.post(verifyUrl, response, {
+						headers: { token: localStorage.token },
+					});
+					console.log(data);
+					// window.location = "/";
+				} catch (error) {
+					console.log(error);
+					if (error.response) alert(error.response.data.message);
+				}
+			},
+			theme: {
+				color: "#3399cc",
+			},
+		};
+		const rzp1 = new window.Razorpay(options);
+		rzp1.open();
+	};
+
+	const handlePayment = async () => {
+		try {
+			const { data } = await axios.post(
+				`${config.backendLocation}/sellableitem/order/${
+					window.location.href.split("id=")[1]
+				}`,
+				{},
+				{ headers: { token: localStorage.token } }
+			);
+			console.log(data);
+			initPayment(data.data, "Buy Item");
+		} catch (error) {
+			console.log(error);
+			if (error.response) alert(error.response.data.message);
+		}
+	};
+
 	return (
 		<>
 			{product && (
@@ -73,6 +126,7 @@ export default function ModelScene() {
 												borderRadius: 20,
 												marginBottom: 20,
 											}}
+											onClick={handlePayment}
 										>
 											Buy Now
 										</Button>
