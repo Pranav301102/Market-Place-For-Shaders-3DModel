@@ -79,7 +79,7 @@ export default function ModelScene() {
 									</div>
 
 									<div className="disc">
-										<div className="title">Discription</div>
+										<div className="title">Description</div>
 										<div className="text">
 											{product.description}
 										</div>
