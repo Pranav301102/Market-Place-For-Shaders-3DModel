@@ -169,7 +169,7 @@ export function ShaderCard({
 	return (
 		<CardContainer style={{ justifyContent: `${position}` }}>
 			<Style>
-				<Screenshot image={image} />
+				<Screenshot image={`${config.backendLocation}/file/download/${image}`} />
 				<Content>
 					<Title>{title}</Title>
 					<Description>{description}</Description>
