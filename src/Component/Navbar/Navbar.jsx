@@ -38,15 +38,17 @@ function Navbar() {
 							3D-Model
 						</Link>
 					</li>
-					{/* <li>
-						<Link
-							to="/PriceCard"
-							className="nav-links"
-							onClick={click ? handleClick : null}
-						>
-							About us
-						</Link>
-					</li> */}
+					{localStorage.token && (
+						<li>
+							<Link
+								to="/owned"
+								className="nav-links"
+								onClick={click ? handleClick : null}
+							>
+								Owned Items
+							</Link>
+						</li>
+					)}
 
 					{localStorage.token ? (
 						<>

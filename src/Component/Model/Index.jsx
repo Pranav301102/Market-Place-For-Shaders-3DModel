@@ -51,7 +51,7 @@ export default function ModelScene() {
 						headers: { token: localStorage.token },
 					});
 					console.log(data);
-					// window.location = "/";
+					window.location = "/owned";
 				} catch (error) {
 					console.log(error);
 					if (error.response) alert(error.response.data.message);

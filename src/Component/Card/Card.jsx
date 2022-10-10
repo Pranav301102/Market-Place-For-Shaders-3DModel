@@ -123,7 +123,7 @@ const CardContainer = styled.div`
 `;
 
 export function ModelCard({
-  id,
+	id,
 	hexa,
 	title,
 	description,
@@ -137,7 +137,9 @@ export function ModelCard({
 	return (
 		<CardContainer style={{ justifyContent: `${position}` }}>
 			<Style>
-				<Screenshot image={`${config.backendLocation}/file/download/${image}`} />
+				<Screenshot
+					image={`${config.backendLocation}/file/download/${image}`}
+				/>
 				<Content>
 					<Title>
 						{title} ₹{price}
@@ -185,6 +187,46 @@ export function ShaderCard({
 						sx={{ position: "absolute", left: 400, top: 230 }}
 					>
 						Buy
+					</Button>
+				</Content>
+			</Style>
+		</CardContainer>
+	);
+}
+
+export function OwnedItemCard({
+	hexa,
+	price,
+	id,
+	title,
+	description,
+	image,
+	position,
+	asset,
+	type,
+}) {
+	const navigate = useNavigate();
+	return (
+		<CardContainer style={{ justifyContent: `${position}` }}>
+			<Style>
+				<Screenshot
+					image={`${config.backendLocation}/file/download/${image}`}
+				/>
+				<Content>
+					<Title>
+						{title} ₹{price}
+					</Title>
+					<Title>{type}</Title>
+					<Description>{description}</Description>
+					<BottomBar background={hexa} />
+					<Button
+						onClick={() =>
+							(window.location = `${config.backendLocation}/file/download/${asset}`)
+						}
+						radius="xl"
+						sx={{ position: "absolute", left: 400, top: 230 }}
+					>
+						Download Asset
 					</Button>
 				</Content>
 			</Style>
