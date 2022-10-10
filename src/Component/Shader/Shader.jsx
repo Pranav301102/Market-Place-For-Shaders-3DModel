@@ -15,10 +15,24 @@ import glsl from "babel-plugin-glsl/macro";
 import "../PricingCard/pricecard.css";
 import { shaders } from "../../Pages/Shaders/shaders";
 import { Button } from "@mantine/core";
+import axios from "axios";
+import config from "../../config";
 
 const GOLDENRATIO = 1.61803398875;
 
 export default function ShaderModel() {
+	const [product, setProduct] = useState([]);
+	useEffect(() => {
+		const productId = window.location.href.split("id=")[1];
+		axios
+			.get(`${config.backendLocation}/sellableitem/${productId}`)
+			.then((res) => {
+				const foundProduct = res.data;
+				console.log(foundProduct);
+				setProduct(foundProduct);
+			});
+	}, []);
+
 	return (
 		<>
 			<MainContainer>
@@ -42,9 +56,9 @@ export default function ShaderModel() {
 						<Scroll html>
 							<div className="CardPricing"></div>
 							<div className="price-card">
-								<div className="name">Blue Waves</div>
-								<div className="author">Made By Pranav</div>
-								<div className="price">Price</div>
+								<div className="name">{product.title}</div>
+								{/* <div className="author">Made By Pranav</div> */}
+								<div className="price">₹{product.price}</div>
 								<Button
 									mt="xl"
 									sx={{
@@ -59,11 +73,9 @@ export default function ShaderModel() {
 							</div>
 
 							<div className="disc">
-								<div className="title">Discription</div>
+								<div className="title">Description</div>
 								<div className="text">
-									Lorem ipsum dolor sit amet consectetur
-									adipisicing elit. Aperiam illo fugiat ut
-									mollitia esse incidunt deleniti, voluptat.
+									{product.description}
 								</div>
 							</div>
 						</Scroll>
