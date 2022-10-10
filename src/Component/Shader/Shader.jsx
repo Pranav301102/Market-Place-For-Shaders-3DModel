@@ -49,16 +49,16 @@ export default function ShaderModel() {
 						<Scroll>
 							<OrbitControls />
 							<Rig>
-								<Frame />
+								{product && <Frame />}
 								<Ground />
 							</Rig>
 						</Scroll>
 						<Scroll html>
 							<div className="CardPricing"></div>
 							<div className="price-card">
-								<div className="name">{product.title}</div>
+								<div className="name">Name: {product.title}</div>
 								{/* <div className="author">Made By Pranav</div> */}
-								<div className="price">₹{product.price}</div>
+								<div className="price">Price: ₹{product.price}</div>
 								<Button
 									mt="xl"
 									sx={{
