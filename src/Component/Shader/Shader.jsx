@@ -1,99 +1,120 @@
-
-import * as THREE from 'three'
-import { useEffect, useRef, useState } from 'react'
-import { Canvas, useFrame, extend, useThree } from '@react-three/fiber'
-import { MeshReflectorMaterial, Environment, shaderMaterial, OrbitControls, CameraShake, ScrollControls, Scroll } from '@react-three/drei'
-import styled from 'styled-components'
-import glsl from 'babel-plugin-glsl/macro'
-import '../PricingCard/pricecard.css';
-import { ShaderData } from '../../Pages/Shaders/shaders';
+import * as THREE from "three";
+import { useEffect, useRef, useState } from "react";
+import { Canvas, useFrame, extend, useThree } from "@react-three/fiber";
+import {
+	MeshReflectorMaterial,
+	Environment,
+	shaderMaterial,
+	OrbitControls,
+	CameraShake,
+	ScrollControls,
+	Scroll,
+} from "@react-three/drei";
+import styled from "styled-components";
+import glsl from "babel-plugin-glsl/macro";
+import "../PricingCard/pricecard.css";
+import { shaders } from "../../Pages/Shaders/shaders";
 import { Button } from "@mantine/core";
 
 const GOLDENRATIO = 1.61803398875;
 
 export default function ShaderModel() {
-  return (
-    <>
-      <MainContainer>
-        <Canvas>
-          <color attach="background" args={["#191920"]} />
-          <fog attach="fog" args={["#191920", 0, 15]} />
-          <Environment preset="city" />
-          {/* <CameraShake
+	return (
+		<>
+			<MainContainer>
+				<Canvas>
+					<color attach="background" args={["#191920"]} />
+					<fog attach="fog" args={["#191920", 0, 15]} />
+					<Environment preset="city" />
+					{/* <CameraShake
             yawFrequency={0.1}
             pitchFrequency={0.1}
             rollFrequency={0.1}
           /> */}
-          <ScrollControls pages={0}>
-            <Scroll>
-              <OrbitControls />
-              <Rig>
-                <Frame />
-                <Ground />
-              </Rig>
-            </Scroll>
-            <Scroll html>
-              <div className="CardPricing" ></div>
-              <div className='price-card'>
-                <div className='name' >Blue Waves</div>
-                <div className='author' >Made By Pranav</div>
-                <div className='price' >Price</div>
-                <Button mt='xl' sx={{width: 100,height: 30 ,borderRadius: 20,marginBottom:20}}>Buy Now</Button>
-              </div>
+					<ScrollControls pages={0}>
+						<Scroll>
+							<OrbitControls />
+							<Rig>
+								<Frame />
+								<Ground />
+							</Rig>
+						</Scroll>
+						<Scroll html>
+							<div className="CardPricing"></div>
+							<div className="price-card">
+								<div className="name">Blue Waves</div>
+								<div className="author">Made By Pranav</div>
+								<div className="price">Price</div>
+								<Button
+									mt="xl"
+									sx={{
+										width: 100,
+										height: 30,
+										borderRadius: 20,
+										marginBottom: 20,
+									}}
+								>
+									Buy Now
+								</Button>
+							</div>
 
-              <div className='disc'>
-                <div className='title' >Discription</div>
-                <div className='text' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam illo fugiat ut mollitia esse incidunt deleniti, voluptat.</div>
-              </div>
-            </Scroll>
-          </ScrollControls>
-        </Canvas>
-      </MainContainer>
-    </>
-  );
+							<div className="disc">
+								<div className="title">Discription</div>
+								<div className="text">
+									Lorem ipsum dolor sit amet consectetur
+									adipisicing elit. Aperiam illo fugiat ut
+									mollitia esse incidunt deleniti, voluptat.
+								</div>
+							</div>
+						</Scroll>
+					</ScrollControls>
+				</Canvas>
+			</MainContainer>
+		</>
+	);
 }
 
 function Frame({ url, c = new THREE.Color(), ...props }) {
-  const portalMaterial = useRef();
-  const frame = useRef();
-  useFrame((state, delta) => (portalMaterial.current.uTime += delta));
-  return (
-    <group {...props}>
-      <mesh
-        scale={[3, GOLDENRATIO * 2.5, 0.05]}
-        position={[0, (GOLDENRATIO * 2.5) / 2, 0]}
-      >
-        <boxGeometry />
-        <meshStandardMaterial
-          color="#151515"
-          metalness={0.5}
-          roughness={0.5}
-          envMapIntensity={2}
-        />
-        <mesh
-          ref={frame}
-          raycast={() => null}
-          scale={[0.9, 0.93, 0.3]}
-          position={[0, 0, 2]}
-        >
-          <boxGeometry />
-          <evalMaterial
-            ref={portalMaterial}
-            blending={THREE.AdditiveBlending}
-            uColorStart="pink"
-            uColorEnd="white"
-          />
-        </mesh>
-      </mesh>
-    </group>
-  );
+	const portalMaterial = useRef();
+	const frame = useRef();
+	useFrame((state, delta) => (portalMaterial.current.uTime += delta));
+	return (
+		<group {...props}>
+			<mesh
+				scale={[3, GOLDENRATIO * 2.5, 0.05]}
+				position={[0, (GOLDENRATIO * 2.5) / 2, 0]}
+			>
+				<boxGeometry />
+				<meshStandardMaterial
+					color="#151515"
+					metalness={0.5}
+					roughness={0.5}
+					envMapIntensity={2}
+				/>
+				<mesh
+					ref={frame}
+					raycast={() => null}
+					scale={[0.9, 0.93, 0.3]}
+					position={[0, 0, 2]}
+				>
+					<boxGeometry />
+					<evalMaterial
+						ref={portalMaterial}
+						blending={THREE.AdditiveBlending}
+						uColorStart="pink"
+						uColorEnd="white"
+					/>
+				</mesh>
+			</mesh>
+		</group>
+	);
 }
 extend({
-  // shaderMaterial creates a THREE.ShaderMaterial, and auto-creates uniform setter/getters
-  // extend makes it available in JSX, in this case <portalMaterial />
-  EvalMaterial: shaderMaterial(
-    { time: 0, uColor: new THREE.Color(0, 1, 0.9), uTime: 0 },
-    glsl`
+	// shaderMaterial creates a THREE.ShaderMaterial, and auto-creates uniform setter/getters
+	// extend makes it available in JSX, in this case <portalMaterial />
+	EvalMaterial: shaderMaterial(
+		{ time: 0, uColor: new THREE.Color(0, 1, 0.9), uTime: 0 },
+		glsl`
     precision mediump float;
   varying vec2 vUv;
   uniform float uTime;
@@ -168,7 +189,7 @@ float pattern( in vec2 p )
     pos.z = shade*20.0;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);  
     }`,
-    glsl`
+		glsl`
     precision mediump float;
     uniform vec3 uColor;
     varying vec2 vUv;
@@ -257,47 +278,46 @@ float pattern( in vec2 p )
     gl_FragColor = vec4(colormap(shade).rgb, shade);
   }
   `
-  ),
+	),
 });
 
 function Rig({ children }) {
-  const ref = useRef();
-  const vec = new THREE.Vector3();
-  const { camera, mouse } = useThree();
-  useFrame(() => {
-    // camera.position.lerp(vec.set(mouse.x * 2, 2, 5.5), 0.05);
-    // ref.current.position.lerp(vec.set(mouse.x * 1, mouse.y * 0.1, 0), 0.1);
-    //   ref.current.rotation.y = THREE.MathUtils.lerp(ref.current.rotation.y, (-mouse.x * Math.PI) / 20, 0.1)
-  });
-  return (
-    <group ref={ref} position={[0, -1.5, 0]}>
-
-      {children}
-    </group>
-  );
+	const ref = useRef();
+	const vec = new THREE.Vector3();
+	const { camera, mouse } = useThree();
+	useFrame(() => {
+		// camera.position.lerp(vec.set(mouse.x * 2, 2, 5.5), 0.05);
+		// ref.current.position.lerp(vec.set(mouse.x * 1, mouse.y * 0.1, 0), 0.1);
+		//   ref.current.rotation.y = THREE.MathUtils.lerp(ref.current.rotation.y, (-mouse.x * Math.PI) / 20, 0.1)
+	});
+	return (
+		<group ref={ref} position={[0, -1.5, 0]}>
+			{children}
+		</group>
+	);
 }
 
 function Ground() {
-  return (
-    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
-      <planeGeometry args={[50, 50]} />
-      <MeshReflectorMaterial
-        blur={[300, 100]}
-        resolution={2048}
-        mixBlur={1}
-        mixStrength={40}
-        roughness={1}
-        depthScale={1.2}
-        minDepthThreshold={0.4}
-        maxDepthThreshold={1.4}
-        color="#101010"
-        metalness={0.5}
-      />
-    </mesh>
-  );
+	return (
+		<mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
+			<planeGeometry args={[50, 50]} />
+			<MeshReflectorMaterial
+				blur={[300, 100]}
+				resolution={2048}
+				mixBlur={1}
+				mixStrength={40}
+				roughness={1}
+				depthScale={1.2}
+				minDepthThreshold={0.4}
+				maxDepthThreshold={1.4}
+				color="#101010"
+				metalness={0.5}
+			/>
+		</mesh>
+	);
 }
 
 export const MainContainer = styled.div`
-  width: 100vw;
-  height: 100vh;
+	width: 100vw;
+	height: 100vh;
 `;
