@@ -3,10 +3,11 @@ import { CreatedItemCard } from "../../Component/Card/Card";
 import axios from "axios";
 import config from "../../config";
 import styled from "styled-components";
-import { Space, Title } from "@mantine/core";
+import { Button, Paper, Space, Title } from "@mantine/core";
 
 function SoldPage() {
 	const [items, setItems] = useState([]);
+	const [dueAmount, setDueAmount] = useState(0);
 
 	useEffect(() => {
 		axios
@@ -16,10 +17,45 @@ function SoldPage() {
 			.then((res) => {
 				setItems(res.data);
 			});
+
+		axios
+			.get(`${config.backendLocation}/payout/due`, {
+				headers: { token: localStorage.token },
+			})
+			.then((res) => {
+				setDueAmount(res.data.dueAmount);
+			});
 	}, []);
 
 	return (
 		<>
+			{dueAmount && (
+				<Paper px="10vw" py="md" mt="130px" mb="-100px" mx="470px">
+					<Title order={2} align="center">
+						Balance ₹{dueAmount}
+					</Title>
+					<Button
+						fullWidth
+						onClick={() => {
+							axios
+								.post(
+									`${config.backendLocation}/payout/withdraw`,
+									{},
+									{
+										headers: { token: localStorage.token },
+									}
+								)
+								.then((res) => {
+									console.log(res.data);
+									alert("transfered balance to account");
+									setDueAmount(0);
+								});
+						}}
+					>
+						Transfer To Account
+					</Button>
+				</Paper>
+			)}
 			<Title
 				order={1}
 				align="center"
