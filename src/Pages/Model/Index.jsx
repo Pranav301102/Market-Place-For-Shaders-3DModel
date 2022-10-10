@@ -87,8 +87,8 @@ export default function Projects() {
 				<Grid>
 					{models.map((website, index) => (
 						<ModelCard
-              id={website._id}
-							hexa={website.hexa}
+							id={website._id}
+							hexa="#1D1148"
 							title={website.title}
 							price={website.price}
 							description={website.description}

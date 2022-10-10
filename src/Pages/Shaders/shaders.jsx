@@ -61,9 +61,9 @@ export default function Projects() {
 					{shaders.map((website, index) => (
 						<ShaderCard
 							key={website._id}
-              id={website._id}
-							hexa={website.hexa}
-              price={website.price}
+							id={website._id}
+							hexa="#1D1148"
+							price={website.price}
 							title={website.title}
 							description={website.description}
 							image={website.image}
