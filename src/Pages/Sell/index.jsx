@@ -56,7 +56,7 @@ function Sell() {
 								)
 								.then((res) => {
 									console.log(res.data);
-									window.location = "/";
+									window.location = "/sold";
 								})
 								.catch((err) => {
 									console.log(err);

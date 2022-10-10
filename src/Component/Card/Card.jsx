@@ -234,6 +234,51 @@ export function OwnedItemCard({
 	);
 }
 
+export function CreatedItemCard({
+	hexa,
+	price,
+	id,
+	title,
+	description,
+	image,
+	position,
+	asset,
+	type,
+	sold
+}) {
+	const navigate = useNavigate();
+	return (
+		<CardContainer style={{ justifyContent: `${position}` }}>
+			<Style>
+				<Screenshot
+					image={`${config.backendLocation}/file/download/${image}`}
+				/>
+				<Content>
+					<Title>
+						{title} ₹{price}
+					</Title>
+					<Title>{type}</Title>
+					<Title>
+						{sold} sold
+					</Title>
+					<Description>{description}</Description>
+					<BottomBar background={hexa} />
+					<Button
+						onClick={() =>
+							(window.location = `${config.backendLocation}/file/download/${asset}`)
+						}
+						radius="xl"
+						sx={{ position: "absolute", left: 400, top: 230 }}
+					>
+						Download Asset
+					</Button>
+				</Content>
+			</Style>
+		</CardContainer>
+	);
+}
+
+
 function StackIcons(props) {
 	const array = props.data;
 	console.log(array);

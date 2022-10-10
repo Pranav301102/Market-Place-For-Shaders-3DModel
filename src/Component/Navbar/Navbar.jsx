@@ -39,15 +39,26 @@ function Navbar() {
 						</Link>
 					</li>
 					{localStorage.token && (
-						<li>
-							<Link
-								to="/owned"
-								className="nav-links"
-								onClick={click ? handleClick : null}
-							>
-								Owned Items
-							</Link>
-						</li>
+						<>
+							<li>
+								<Link
+									to="/owned"
+									className="nav-links"
+									onClick={click ? handleClick : null}
+								>
+									Owned Items
+								</Link>
+							</li>
+							<li>
+								<Link
+									to="/sold"
+									className="nav-links"
+									onClick={click ? handleClick : null}
+								>
+									Created Items
+								</Link>
+							</li>
+						</>
 					)}
 
 					{localStorage.token ? (

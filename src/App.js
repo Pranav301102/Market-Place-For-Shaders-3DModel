@@ -14,6 +14,7 @@ import ShaderModel from "./Component/Shader/Shader";
 import Aboutus from "./Component/AboutUS/aboutus";
 import Sell from "./Pages/Sell";
 import OwnedPage from "./Pages/Owned";
+import SoldPage from "./Pages/Sold";
 
 function App() {
 	return (
@@ -31,6 +32,7 @@ function App() {
 					<Route exact path="/sh" element={<ShaderModel />} />
 					<Route exact path="/sell" element={<Sell />} />
 					<Route exact path="/owned" element={<OwnedPage />} />
+					<Route exact path="/sold" element={<SoldPage />} />
 				</Routes>
 			</Router>
 		</MantineProvider>
