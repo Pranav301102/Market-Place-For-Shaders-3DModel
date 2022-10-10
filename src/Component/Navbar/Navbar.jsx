@@ -38,7 +38,7 @@ function Navbar() {
 							3D-Model
 						</Link>
 					</li>
-					<li>
+					{/* <li>
 						<Link
 							to="/PriceCard"
 							className="nav-links"
@@ -46,7 +46,7 @@ function Navbar() {
 						>
 							About us
 						</Link>
-					</li>
+					</li> */}
 
 					{localStorage.token ? (
 						<>

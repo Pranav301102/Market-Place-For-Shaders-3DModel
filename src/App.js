@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MantineProvider } from "@mantine/core";
 import ModelScene from "./Component/Model/Index";
 import ShaderModel from "./Component/Shader/Shader";
+import Aboutus from "./Component/AboutUS/aboutus";
 import Sell from "./Pages/Sell";
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
 				<Routes>
 					<Route exact path="/" element={<Home />} />
 					<Route exact path="/login" element={<LoginPage />} />
-					<Route exact path="/PriceCard" element={<PriceCard />} />
+					{/* <Route exact path="/PriceCard" element={<Aboutus/>} /> */}
 					<Route exact path="/signup" element={<SignupPage />} />
 					<Route exact path="/shader" element={<Shaders />} />
 					<Route exact path="/model" element={<Model />} />
