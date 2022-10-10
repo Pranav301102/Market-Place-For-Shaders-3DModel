@@ -63,6 +63,7 @@ export default function Projects() {
 							key={website._id}
               id={website._id}
 							hexa={website.hexa}
+              price={website.price}
 							title={website.title}
 							description={website.description}
 							image={website.image}

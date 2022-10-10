@@ -158,6 +158,7 @@ export function ModelCard({
 }
 export function ShaderCard({
 	hexa,
+	price,
 	id,
 	title,
 	description,
@@ -169,9 +170,13 @@ export function ShaderCard({
 	return (
 		<CardContainer style={{ justifyContent: `${position}` }}>
 			<Style>
-				<Screenshot image={`${config.backendLocation}/file/download/${image}`} />
+				<Screenshot
+					image={`${config.backendLocation}/file/download/${image}`}
+				/>
 				<Content>
-					<Title>{title}</Title>
+					<Title>
+						{title} ₹{price}
+					</Title>
 					<Description>{description}</Description>
 					<BottomBar background={hexa} />
 					<Button
